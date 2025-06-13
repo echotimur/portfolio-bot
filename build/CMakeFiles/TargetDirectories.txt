@@ -1,0 +1,3 @@
+/Users/tim/it/c++/pet-and-study/portfolio/build/CMakeFiles/PortfolioBot.dir
+/Users/tim/it/c++/pet-and-study/portfolio/build/CMakeFiles/edit_cache.dir
+/Users/tim/it/c++/pet-and-study/portfolio/build/CMakeFiles/rebuild_cache.dir
