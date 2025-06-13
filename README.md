@@ -64,7 +64,6 @@ cd portfolio-bot
 ```JSON
         {
             "twelvedata_apikey": "ВАШ_API_КЛЮЧ_TWELVEDATA",
-            "telegram_bot_token": "ВАШ_ТОКЕН_ТЕЛЕГРАМ_БОТА"
         }
 ```
 
