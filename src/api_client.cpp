@@ -29,25 +29,22 @@ size_t APIClient::WriteCallback(void* contents, size_t size, size_t nmemb, std::
 
 
 double APIClient::getPrice(const std::string& symbol) {
-    // 1. Готовим URL и строку для ответа
+
     std::string url = "https://api.twelvedata.com/price?symbol=" + symbol + "&apikey=" + api_key_;
     std::string response_string;
 
-    // 2. Настраиваем cURL для этого конкретного запроса
+
     curl_easy_setopt(curl_handle_, CURLOPT_URL, url.c_str());
     curl_easy_setopt(curl_handle_, CURLOPT_WRITEFUNCTION, APIClient::WriteCallback);
     curl_easy_setopt(curl_handle_, CURLOPT_WRITEDATA, &response_string);
 
-    // 3. Выполняем запрос
     CURLcode res = curl_easy_perform(curl_handle_);
 
-    // 4. Проверяем на ошибки
     if (res != CURLE_OK) {
         std::cerr << "cURL request failed: " << curl_easy_strerror(res) << std::endl;
-        return -1.0; // Возвращаем значение-индикатор ошибки
+        return -1.0;
     }
 
-    // 5. Парсим JSON и возвращаем цену (вся твоя логика отсюда)
     try {
         auto data = nlohmann::json::parse(response_string);
         if (data.contains("price")) {
